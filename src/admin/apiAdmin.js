@@ -1,3 +1,4 @@
+import axios from "axios";
 import { API } from "../config";
 
 export const createCategory = (userId, token, category) => {
@@ -19,23 +20,70 @@ export const createCategory = (userId, token, category) => {
     });
 };
 
-export const createProduct = (userId, token, product) => {
-  // console.log(name, email, password);
-  return fetch(`${API}/product/create/${userId}`, {
-    method: "POST",
+// export const createProduct = (userId, token, product) => {
+//   // console.log(name, email, password);
+//   return fetch(`${API}/product/create/${userId}`, {
+//     method: "POST",
+//     headers: {
+//       Accept: "application/json",
+//       Authorization: `Bearer ${token}`,
+//     },
+//     body: product,
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+// };
+
+export const createProduct = async (userId, token, product) => {
+  console.log(product);
+  var config = {
+    method: "post",
+    url: `${API}/product/create/${userId}`,
     headers: {
-      Accept: "application/json",
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: product,
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    data: product,
+  };
+  let response = await axios(config);
+  // let response = await axios.post(
+  //   `${API}/product/create/${userId}`,
+  //   { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+  //   { data: product }
+  // );
+  console.log("Here the data: ", response.data);
+  return response.data;
+  // return fetch(`${API}/product/create/${userId}`, {
+  //   method: "POST",
+  //   headers: {
+  //     Accept: "application/json",
+  //     Authorization: `Bearer ${token}`,
+  //   },
+  //   body: JSON.stringify(product),
+  // })
+  //   .then((response) => {
+  //     console.log(product);
+  //     return response.json();
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
 };
+// export const uploadProductImage = (uri) => {
+//   return fetch(`${API}/uploadimage`, {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: { urls: uri },
+//   })
+//     .then((res) => res.json())
+//     .catch((err) => console.log("image error: ", err));
+// };
 
 export const signout = (next) => {
   if (typeof window !== "undefined") {
@@ -138,7 +186,6 @@ export const getSingleProduct = (productId) => {
       console.log(err);
     });
 };
-//update a product
 //delete a product
 export const deleteProduct = (userId, token, productId) => {
   console.log(productId);

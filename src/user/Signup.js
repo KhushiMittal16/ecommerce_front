@@ -91,7 +91,7 @@ const Signup = () => {
     <>
       <Layout
         title="Signup Page"
-        description="Signup to Node React App"
+        description="Signup to Books for All"
         className="container col-md-8 offset-md-2"
       >
         {showError()}

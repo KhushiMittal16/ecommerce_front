@@ -1,9 +1,13 @@
+import { isAuthenticated } from "../auth";
+
+//jwt token in getItem should be equal to the jwt token of addItem as the only person who added the item to cart should see that product in cart
 export const addItem = (item, next) => {
   let cart = [];
   if (typeof window !== "undefined") {
     if (localStorage.getItem("cart")) {
       cart = JSON.parse(localStorage.getItem("cart"));
     }
+    console.log("auth token", isAuthenticated().token);
     cart.push({
       ...item,
       count: 1,
@@ -29,6 +33,7 @@ export const ItemTotal = () => {
 export const getCart = () => {
   if (typeof window !== "undefined") {
     if (localStorage.getItem("cart")) {
+      console.log("auth token", isAuthenticated().token);
       return JSON.parse(localStorage.getItem("cart"));
     }
   }
@@ -36,7 +41,7 @@ export const getCart = () => {
 };
 
 export const updateItem = (productId, count) => {
-  let cart = [];
+  //let cart = [];
   let cartItems;
   if (typeof window !== "undefined") {
     if (localStorage.getItem("cart")) {
@@ -57,9 +62,9 @@ export const updateItem = (productId, count) => {
 
 export const removeItem = (productId) => {
   let cartItems;
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     if (localStorage.getItem("cart")) {
-      cartItems= JSON.parse(localStorage.getItem("cart"));
+      cartItems = JSON.parse(localStorage.getItem("cart"));
     }
     // console.log(cartItems);
     cartItems.map((p, i) => {

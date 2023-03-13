@@ -35,9 +35,9 @@ const Orders = () => {
     return orders.length < 1 ? (
       <h2 className="text-danger display-2">No Orders</h2>
     ) : (
-      <h2 className="text-danger display-2">
+      <div className="text-danger display-2" style={{fontSize:"3.6em", fontWeight:"bold"}}>
         {orders.length} orders have been placed
-      </h2>
+      </div>
     );
   };
 
@@ -67,13 +67,17 @@ const Orders = () => {
     return (
       <div className="form-group">
         <h3 className="mark mb-4">Status: {o.status}</h3>
+        {/* {JSON.stringify(o)} */}
         <select
           className="form-control"
           onChange={(e) => handleStatusChange(e, o._id)}
         >
           <option>Update Status</option>
           {statusValues.map((statusVal, svIndex) => (
-            <option key={svIndex} value={statusVal}>
+            <option
+              key={svIndex}
+              value={statusVal}
+            >
               {statusVal}
             </option>
           ))}

@@ -38,10 +38,9 @@ const Product = (props) => {
     <Layout
       title={product.name}
       description={
-        product && product.description && product.description.substring(0, 100)
+        product && product.description
       }
     >
-      {/* <h2 className="mb-4">{product.name}</h2> */}
       <div className="row">
         <div className="col-8">
           {product && product.description && (

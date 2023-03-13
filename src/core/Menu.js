@@ -12,7 +12,7 @@ const isActive = (history, path) => {
 };
 
 const Menu = ({ history }) => {
-  // console.log(isAuthenticated().user)
+  //console.log("user", isAuthenticated() && isAuthenticated().user);
   return (
     <>
       <ul className="nav nav-tabs bg-primary">
@@ -31,30 +31,6 @@ const Menu = ({ history }) => {
           </Link>
         </li>
 
-        <li className="nav-item">
-          <Link
-            className="nav-link"
-            to="/cart"
-            style={isActive(history, "/cart")}
-          >
-            Cart
-            <sup
-              className="cart-badge"
-              style={{
-                backgroundColor: "black",
-                borderRadius: "100%",
-                padding: "2px",
-                fontSize: "12px",
-                fontStyle: "italic",
-              }}
-            >
-              <small>
-                <ItemTotal />
-              </small>
-            </sup>
-          </Link>
-        </li>
-
         {/* <li className="nav-item">
           <Link
             className="nav-link"
@@ -67,28 +43,58 @@ const Menu = ({ history }) => {
             </sup>
           </Link>
         </li> */}
-        {isAuthenticated() && isAuthenticated().user.role === 0 && (
-          <li className="nav-item">
-            <Link
-              className="nav-link"
-              to="/user/dashboard"
-              style={isActive(history, "/user/dashboard")}
-            >
-              Dashboard
-            </Link>
-          </li>
-        )}
-        {isAuthenticated() && isAuthenticated().user.role === 1 && (
-          <li className="nav-item">
-            <Link
-              className="nav-link"
-              to="/admin/dashboard"
-              style={isActive(history, "/admin/dashboard")}
-            >
-              Dashboard
-            </Link>
-          </li>
-        )}
+
+        <li className="nav-item">
+          <Link
+            className="nav-link"
+            to="/cart"
+            style={isActive(history, "/cart")}
+          >
+            Cart
+            {isAuthenticated() && (
+              <sup
+                className="cart-badge"
+                style={{
+                  backgroundColor: "black",
+                  borderRadius: "100%",
+                  padding: "2px",
+                  fontSize: "12px",
+                  fontStyle: "italic",
+                }}
+              >
+                <small>
+                  <ItemTotal />
+                </small>
+              </sup>
+            )}
+          </Link>
+        </li>
+        {isAuthenticated()
+          ? isAuthenticated().user.role === 0 && (
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/user/dashboard"
+                  style={isActive(history, "/user/dashboard")}
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )
+          : ""}
+        {isAuthenticated()
+          ? isAuthenticated().user.role === 1 && (
+              <li className="nav-item">
+                <Link
+                  className="nav-link"
+                  to="/admin/dashboard"
+                  style={isActive(history, "/admin/dashboard")}
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )
+          : ""}
 
         {!isAuthenticated() && (
           <>

@@ -1,5 +1,5 @@
 .jumbotron {
-  width: 30wh;
+  /* width: 30wh; */
   height: 30vh;
   display: flex;
   justify-content: center;
@@ -8,49 +8,50 @@
   margin-top: -1px;
   margin-bottom: 30px;
   color: #fff;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #be4f4a, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   -webkit-animation: Gradient 15s ease infinite;
   -moz-animation: Gradient 15s ease infinite;
   animation: Gradient 15s ease infinite;
 }
 
-.name{
-  background-color:indigo;
-  color:#fff;
-  font-weight:bold;
+.name {
+  background-color: indigo;
+  color: #fff;
+  font-weight: bold;
+}
+
+img{
+  width: 100%;
 }
 
 /* black shade from 10-1 */
 
-.black-10{
+.black-10 {
   background-color: #f2f2f2;
 }
 
-.black-9{
+.black-9 {
   background-color: #e6e6e6;
 }
 
-.black-8{
+.black-8 {
   background-color: #d9d9d9;
 }
 
-
-.black-7{
+.black-7 {
   background-color: #cccccc;
 }
 
-
-.black-6{
+.black-6 {
   background-color: #bfbfbf;
 }
 
-
-.black-5{
+.black-5 {
   background-color: #b3b3b3;
 }
 
-.cart-badge .cart-badge:hover{
+.cart-badge .cart-badge:hover {
   border-radius: 50%;
   padding: 2px;
   font-size: 12px;
@@ -58,6 +59,9 @@
   background-color: black !important;
 }
 
+.row {
+  width: 100%;
+}
 
 @-webkit-keyframes Gradient {
   0% {

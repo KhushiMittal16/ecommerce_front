@@ -50,7 +50,7 @@ const ManageProducts = () => {
   };
 
   return (
-    <Layout title="Manage Products" description={`Perform CRUD on products`}>
+    <Layout title="Manage Products" description={`Perform any operation on products`}>
       <h2 className="mb-4">Manage Products</h2>
       {/* {JSON.stringify(values)} */}
       <div className="row">
@@ -61,7 +61,7 @@ const ManageProducts = () => {
             {products &&
               products.map((p, i) => {
                 return (
-                  <li
+                 <li
                     key={i}
                     className="list-group-item d-flex justify-content-between align-items-center"
                   >

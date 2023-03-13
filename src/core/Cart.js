@@ -15,7 +15,7 @@ const Cart = () => {
 
     const { user } = isAuthenticated();
 
-  const showItems = (items) => {
+  const showItems = () => {
     return (
       <div>
         <h2>Your cart has {items.length} items</h2>

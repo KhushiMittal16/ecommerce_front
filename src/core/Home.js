@@ -43,12 +43,12 @@ const Home = () => {
 
   return (
     <>
-      <Layout title="Home Page" description="Node React App">
+      <Layout title="Home Page" description="Welcome to Books For All. Hope we will be able to provide you a book more conveniently!!!">
         {/* <Card product={productsBySell}/> */}
         {/* <Card product={productsByArrival}/> */}
         <Search />
         <h2>Best Sellers</h2>
-        <div className="row">
+        <div className="row p-3">
           {productsBySell.map((product, i) => (
             <div key={i} className="col-4 mb-3">
               <Card product={product} />
@@ -56,7 +56,7 @@ const Home = () => {
           ))}
         </div>
         <h2>New Arrivals</h2>
-        <div className="row">
+        <div className="row p-3">
           {productsByArrival.map((product, i) => (
             <div key={i} className="col-4 mb-3">
               <Card product={product} />
